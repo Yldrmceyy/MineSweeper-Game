@@ -11,7 +11,7 @@ public class MineSweeper { //Item 5
     private boolean isGameOver = false;
 
 
-    // Constructor
+    // Constructor for the MineSweeper class.
     public MineSweeper(int rowNumber, int columnNumber) {
         this.rowNumber = rowNumber;
         this.columnNumber = columnNumber;
@@ -19,7 +19,8 @@ public class MineSweeper { //Item 5
         board = new String[rowNumber][columnNumber];
     }
 
-
+    //Starts the game by calling createBoard() and placeMines() methods to create the game board and place mines.
+    //Prints the mineMap and board matrices to the console.Initiates the game loop by calling the play() method.
     public void run() { //Item 6
         createBoard();
         placeMines();
@@ -53,7 +54,8 @@ public class MineSweeper { //Item 5
         }
     }
 
-    // Method to place mines on the mine map
+    //Places mines randomly on the board.Calculates the total number of mines and places that number of mines at random coordinates.
+    //Marks each mine's coordinate with the '*' character in the mineMap.
     private void placeMines() { //Item 8
         Random random = new Random();
         int totalElement = rowNumber * columnNumber;
@@ -78,22 +80,26 @@ public class MineSweeper { //Item 5
         Scanner scanner = new Scanner(System.in);
 
         while (!isGameOver) {
-            System.out.print("Please enter the row number (starting from 0): ");
+            //Prompts the user to select a cell by entering its coordinates.
+            System.out.print("Please enter the row number (starting from 0): "); //Item 9
             int row = scanner.nextInt();
 
-            System.out.print("Please enter the column number (starting from 0): ");
+            System.out.print("Please enter the column number (starting from 0): "); //Item 9
             int column = scanner.nextInt();
 
+            //Checks if the entered coordinates are valid.
             if (row < 0 || row >= rowNumber || column < 0 || column >= columnNumber) { //Item 10
                 System.out.println("Invalid coordinates. Please re-enter row and column index values.");
                 continue;
             }
 
+            //Checks if the selected cell has already been opened.
             if (!board[row][column].equals("-")) {
                 System.out.println("You have already opened this cell. Please choose another one.");
                 continue;
             }
 
+            //If the selected cell contains a mine, ends the game and prints the game over message along with the mine locations.
             if (mineMap[row][column].equals("*")) { //Item 13
                 System.out.println("You stepped on a mine! Game Over. 😥"); //Item 15
                 isGameOver = true;
@@ -104,6 +110,9 @@ public class MineSweeper { //Item 5
 
                 // Count the number of open cells on the board
                 int openCells = countOpenCells();
+
+                // Check if the number of open cells equals the total number of cells minus the number of mines.
+                // If true, print a congratulatory message indicating that the player has won the game.
                 if (openCells == (rowNumber * columnNumber - numberMines)) { //Item 14
                     System.out.println("Congratulations, You Won! 🎉"); //Item 15
                     isGameOver = true;
@@ -146,6 +155,7 @@ public class MineSweeper { //Item 5
 
 
     // Method to count open cells on the board
+    //Counts all cells in the board matrix that are different from '-' and '*' and returns that number.
     private int countOpenCells() {
         int openCells = 0;
         for (String[] row : board) {

@@ -12,7 +12,7 @@ public class Main {
         }
         int rows = scanner.nextInt();
 
-        System.out.print("Enter the column number for the height of the game:"); //TItem 7
+        System.out.print("Enter the column number for the height of the game:"); //Item 7
         while (!scanner.hasNextInt()) {
             System.out.println("Please enter a valid integer.");
             scanner.next();
