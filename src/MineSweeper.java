@@ -3,12 +3,12 @@ import java.util.Scanner;
 
 // Class representing a Minesweeper game
 public class MineSweeper { //Item 5
-    private int rowNumber;
-    private int columnNumber;
-    private int numberMines;
-    private String[][] mineMap;
-    private String[][] board;
-    private boolean isGameOver = false;
+    public int rowNumber;
+    public int columnNumber;
+    public int numberMines;
+    public String[][] mineMap;
+    public String[][] board;
+    public boolean isGameOver = false;
 
 
     // Constructor for the MineSweeper class.
@@ -35,7 +35,7 @@ public class MineSweeper { //Item 5
     }
 
     // Method to create the game board
-    private void createBoard() {
+    public void createBoard() {
         for (int i = 0; i < rowNumber; i++) {
             for (int j = 0; j < columnNumber; j++) {
                 mineMap[i][j] = "-";
@@ -45,7 +45,7 @@ public class MineSweeper { //Item 5
     }
 
     // Method to print the game board
-    private void printBoard(String[][] board) {
+    public void printBoard(String[][] board) {
         for (String[] row : board) {
             for (String cell : row) {
                 System.out.print(cell + "\t");
@@ -56,7 +56,7 @@ public class MineSweeper { //Item 5
 
     //Places mines randomly on the board.Calculates the total number of mines and places that number of mines at random coordinates.
     //Marks each mine's coordinate with the '*' character in the mineMap.
-    private void placeMines() { //Item 8
+    public void placeMines() { //Item 8
         Random random = new Random();
         int totalElement = rowNumber * columnNumber;
         this.numberMines = totalElement / 4;
@@ -76,7 +76,7 @@ public class MineSweeper { //Item 5
     }
 
     // Method to handle the main gameplay loop
-    private void play() {
+    public void play() {
         Scanner scanner = new Scanner(System.in);
 
         while (!isGameOver) {
@@ -156,7 +156,7 @@ public class MineSweeper { //Item 5
 
     // Method to count open cells on the board
     //Counts all cells in the board matrix that are different from '-' and '*' and returns that number.
-    private int countOpenCells() {
+    public int countOpenCells() {
         int openCells = 0;
         for (String[] row : board) {
             for (String cell : row) {
