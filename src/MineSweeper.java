@@ -82,9 +82,17 @@ public class MineSweeper { //Item 5
         while (!isGameOver) {
             //Prompts the user to select a cell by entering its coordinates.
             System.out.print("Please enter the row number (starting from 0): "); //Item 9
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid integer for the row number: ");
+                scanner.next();
+            }
             int row = scanner.nextInt();
 
             System.out.print("Please enter the column number (starting from 0): "); //Item 9
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid integer for the column number: ");
+                scanner.next();
+            }
             int column = scanner.nextInt();
 
             //Checks if the entered coordinates are valid.
