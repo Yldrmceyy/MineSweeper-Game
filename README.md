@@ -19,5 +19,5 @@ This project is developed using the Java programming language.The project utiliz
 5. If a mine is uncovered, the game ends, and the player loses.
 6. Continue selecting cells strategically to reveal all non-mine cells and win the game.
 
-#### Screenshots of the Project
-![MineSweeper](https://github.com/Yldrmceyy/MineSweeper-Game/assets/106755050/92b9d306-0ee7-4c09-bc27-1242297330d3)
+## Screenshots of the Project
+![MineSweeper.png](MineSweeper.png)
